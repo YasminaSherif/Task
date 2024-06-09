@@ -62,7 +62,7 @@ namespace BLL.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateClientProduct(string id, ClientProductUpdate clientProduct)
+        public async Task<IActionResult> UpdateClientProduct(string id, ClientProductUpdateDto clientProduct)
         {
             if (ModelState.IsValid)
             {

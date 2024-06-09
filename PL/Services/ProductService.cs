@@ -26,9 +26,9 @@ namespace PL.Services
             return await Get<List<ProductDto>?>("https://localhost:7083/api/Product");
         }
 
-        public async Task<List<ProductDto>?> GetAllProductsWithPaging(int pageNumber, int pageSize)
+        public async Task<List<ProductDto>> GetAllProductsWithPaging(int pageNumber, int pageSize)
         {
-            return await Get<List<ProductDto>?>($"https://localhost:7083/api/Product/paging?pageNumber={pageNumber}&pageSize={pageSize}");
+            return await Get<List<ProductDto>>($"https://localhost:7083/api/Product/paging?pageNumber={pageNumber}&pageSize={pageSize}");
         }
 
         public async Task<ProductDto> GetProductById(string id)

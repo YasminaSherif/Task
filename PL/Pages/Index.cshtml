@@ -4,41 +4,84 @@
     ViewData["Title"] = "Home page";
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Product</h5>
+        .card {
+            margin: 10px;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+            .carousel-caption h5 {
+                font-size: 2rem;
+            }
+
+            .carousel-caption p {
+                font-size: 1.25rem;
+            }
+
+        .carousel-inner img {
+            height: 500px; 
+            object-fit: cover;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="~/images/1.jpg" alt="Product">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Product</h5>
+                    <p>Discover our products.</p>
                     <a href="/Products/Product" class="btn btn-danger">Product</a>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Client</h5>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="~/images/2.jpg" alt="Client">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Client</h5>
+                    <p>Manage your clients.</p>
                     <a href="/Clients/clients" class="btn btn-warning">Client</a>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Client Product</h5>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="~/images/3.jpg" alt="Client Product">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Client Product</h5>
+                    <p>View client products.</p>
                     <a href="/ClientsProducts/clientsProducts" class="btn btn-success">Client Product</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<style>
-    .container {
-        margin-top: 50px;
-    }
-    .card {
-        margin: 10px;
-    }
-</style>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#carouselExampleSlidesOnly').carousel({
+                interval: 5000
+            });
+        });
+    </script>
+</body>
+</html>

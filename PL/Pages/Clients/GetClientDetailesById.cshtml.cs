@@ -20,10 +20,7 @@ namespace PL.Pages.Clients
 
             public async Task<IActionResult> OnGetAsync(string id)
             {
-                if (string.IsNullOrEmpty(id))
-                {
-                    return BadRequest();
-                }
+                
 
              Client = await _clientService.GetClientDetailsById(id);
 

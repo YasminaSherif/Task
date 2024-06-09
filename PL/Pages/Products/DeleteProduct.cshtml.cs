@@ -1,37 +1,39 @@
-using DTO.Client;
+using DTO.Product;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PL.Services;
 
-namespace PL.Pages.Clients
+namespace PL.Pages.Products
 {
-    public class DeleteClientModel : PageModel
+    public class DeleteProductModel : PageModel
     {
-        private readonly ClientService _clientService;
+        private readonly ProductService _productService;
 
-        public DeleteClientModel(ClientService clientService)
+        public DeleteProductModel( ProductService productService)
         {
-            _clientService = clientService;
+            _productService = productService;
         }
 
         [BindProperty]
-        public ClientWithDtailesDto Client { get; set; }
+        public ProductDto product { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
             try
             {
-                Client = await _clientService.GetClientDetailsById(id);
+                product = await _productService.GetProductById(id);
 
-                if (Client == null)
+                if (product == null)
                 {
                     return NotFound();
                 }
+
+                return Page();
             }
             catch (Exception e)
             {
-
                 return BadRequest(e.Message);
+
             }
 
             return Page();
@@ -40,17 +42,19 @@ namespace PL.Pages.Clients
         public async Task<IActionResult> OnPostAsync(string id)
         {
             try
-            {
-                await _clientService.DeleteClient(id);
+
+    {
+                await _productService.DeleteProduct(id);
             }
-            catch (Exception e)
-            {
+	catch (Exception e)
+
+    {
+
                 ModelState.AddModelError(string.Empty, e.Message);
 
                 return Page();
-
             }
-            return RedirectToPage("GetAllClients");
+            return RedirectToPage("GetAllProducts");
         }
     }
 }

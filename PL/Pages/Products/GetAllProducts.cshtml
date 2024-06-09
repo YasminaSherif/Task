@@ -1,0 +1,40 @@
+﻿@page
+@model PL.Pages.Products.GetAllProductsModel
+@{
+}
+
+<h1>Products</h1>
+
+<a asp-page="CreateProduct" class="btn btn-primary">Create New Product</a>
+
+@if (Model.Products is not null && Model.Products.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>IsActive</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.IsActive</td>
+                    <td>
+                        <a asp-page="UpdateProduct" asp-route-id="@product.Id" class="btn btn-secondary">Update</a>
+                        <a asp-page="DeleteProduct" asp-route-id="@product.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No products available.</p>
+}

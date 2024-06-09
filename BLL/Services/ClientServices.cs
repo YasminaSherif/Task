@@ -70,7 +70,7 @@ namespace BLL.Services
             return await _repository.Delete(client);
         }
 
-        public async Task<List<ClientDto>> GetAllClients()
+        public async Task<List<ClientDto>?> GetAllClients()
         {
             var listOfClients = await _repository.GetAll();
             if (listOfClients == null || !listOfClients.Any())

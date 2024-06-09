@@ -1,0 +1,21 @@
+﻿@page
+@model PL.Pages.Products.DeleteProductModel
+@{
+}
+
+h1>Delete Client</h1>
+
+
+<h3>Are you sure you want to delete this client?</h3>
+
+<div>
+    <h4>@Model.product.Name</h4>
+    <p>Code: @Model.product.Description/p>
+    <p>Class: @Model.product.IsActive</p>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="product.Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="products" class="btn btn-secondary">Cancel</a>
+</form>

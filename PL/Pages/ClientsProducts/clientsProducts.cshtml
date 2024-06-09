@@ -2,3 +2,45 @@
 @model PL.Pages.ClientsProducts.clientsProductsModel
 @{
 }
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">ClientProduct</h5>
+                    <a href="CreateClientProduct" class="btn btn-primary">Create</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">ClientProducts</h5>
+                    <a href="GetAllClientProduct" class="btn btn-primary">Get All</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">ClientProduct</h5>
+                    <a href="UpdateCLientProduct" class="btn btn-primary">Update </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<style>
+    .container {
+        margin-top: 50px;
+    }
+
+    .card {
+        margin: 10px;
+    }
+</style>

@@ -20,9 +20,9 @@ namespace PL.Services
         }
 
 
-        public async Task<ClientProductDto?> UpdateClientProduct(string id, ClientProductUpdate clientProduct)
+        public async Task<ClientProductDto?> UpdateClientProduct(string id, ClientProductUpdateDto clientProduct)
         {
-            return await Put<ClientProductDto?,ClientProductUpdate> ($"https://localhost:7083/api/ClientProduct/{id}", clientProduct);
+            return await Put<ClientProductDto?,ClientProductUpdateDto> ($"https://localhost:7083/api/ClientProduct/{id}", clientProduct);
         }
 
         public async Task DeleteClientProduct(string id)

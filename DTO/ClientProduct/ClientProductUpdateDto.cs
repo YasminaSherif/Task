@@ -2,7 +2,7 @@
 
 namespace DTO.ClientProduct
 {
-    public class ClientProductUpdate
+    public class ClientProductUpdateDto
     {
      
         [Required]

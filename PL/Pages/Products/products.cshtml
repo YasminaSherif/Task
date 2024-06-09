@@ -2,3 +2,53 @@
 @model PL.Pages.Products.productsModel
 @{
 }
+
+div class="container">
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/images/1.jpg" alt="Create Product">
+            <div class="card-body text-center">
+                <h5 class="card-title">Create Client</h5>
+                <p class="card-text">Add a new Product to the system.</p>
+                <a href="CreateClient" class="btn btn-primary">Create</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/images/2.jpg" alt="Get All Products">
+            <div class="card-body text-center">
+                <h5 class="card-title">Get All Clients</h5>
+                <p class="card-text">View all clients in the system.</p>
+                <a href="GetAllClients" class="btn btn-primary">Get All</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/images/3.jpg" alt="Get All Products with Paging">
+            <div class="card-body text-center">
+                <h5 class="card-title">Clients with Paging</h5>
+                <p class="card-text">View clients with pagination.</p>
+                <a href="GetAllClientsWithPaging" class="btn btn-primary">Get All with Paging</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<style>
+    .container {
+        margin-top: 50px;
+    }
+
+    .card {
+        margin: 20px;
+    }
+
+    .card-img-top {
+        height: 180px;
+        object-fit: cover;
+    }
+</style>

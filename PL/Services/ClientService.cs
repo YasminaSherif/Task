@@ -10,9 +10,9 @@ namespace PL.Services
 
         }
 
-        public Task<List<ClientDto>> GetAllClients()
+        public Task<List<ClientDto>?> GetAllClients()
         {
-            return Get<List<ClientDto>>("https://localhost:7083/api/Client");
+            return Get<List<ClientDto>?>("https://localhost:7083/api/Client");
         }
 
         public Task<ClientDto> CreateClient(ClientCreateDto client)

@@ -51,7 +51,7 @@ namespace BLL.Services
             return await _clientProductRepository.Delete(clientProduct); ;
         }
 
-        public async Task<ClientProductDto?> UpdateClientProduct(string id, ClientProductUpdate model)
+        public async Task<ClientProductDto?> UpdateClientProduct(string id, ClientProductUpdateDto model)
         {
             var productClient = await _clientProductRepository.GetById(id);
             if (productClient is null)
