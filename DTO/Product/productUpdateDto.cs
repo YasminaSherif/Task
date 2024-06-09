@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BLL.DTO.Product
+namespace DTO.Product
 {
     public class productUpdateDto
     {

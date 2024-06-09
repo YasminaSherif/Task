@@ -1,4 +1,4 @@
-﻿using BLL.DTO.Product;
+﻿using DTO.Product;
 
 namespace BLL.Services.Contracts
 {

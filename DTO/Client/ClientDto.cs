@@ -1,7 +1,7 @@
-﻿using DAL.Models;
+﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace BLL.DTO.Client
+namespace DTO.Client
 {
     public class ClientDto
     {

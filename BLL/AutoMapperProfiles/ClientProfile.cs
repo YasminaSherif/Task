@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BLL.DTO.Client;
+using DTO.Client;
 using DAL.Models;
 
 namespace BLL.AutoMapperProfiles

@@ -1,6 +1,6 @@
-﻿using BLL.DTO.Client;
-using BLL.DTO.ClientProduct;
-using BLL.DTO.Product;
+﻿using DTO.Client;
+using DTO.ClientProduct;
+using DTO.Product;
 
 namespace BLL.Services.Contracts
 {

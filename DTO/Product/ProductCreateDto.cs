@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BLL.DTO.Product
+namespace DTO.Product
 {
-    public class ProductDto
+    public class ProductCreateDto
     {
-        [Required]
-        public string Id { get; set; }
         [MaxLength(50)]
         [Required]
         public string Name { get; set; }

@@ -1,4 +1,4 @@
-﻿using BLL.DTO.Client;
+﻿using DTO.Client;
 using DAL.Models;
 
 namespace BLL.Services.Contracts
@@ -10,6 +10,6 @@ namespace BLL.Services.Contracts
         Task<ClientWithDtailesDto?> GetClientDetailsById(String id);
         Task<ClientDto> CreateClient(ClientCreateDto model);
         Task<bool> DeleteClient(string id);
-        Task<ClientDto?> UpdateClient(string id,ClientDto model);
+        Task<ClientDto?> UpdateClient(string id, ClientUpdateDto model);
     }
 }

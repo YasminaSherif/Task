@@ -1,4 +1,4 @@
-﻿using BLL.DTO.Client;
+﻿using DTO.Client;
 using BLL.Services.Contracts;
 using DAL.Models;
 using Microsoft.AspNetCore.Http;
@@ -123,7 +123,7 @@ namespace BLL.Controllers
 
       
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateClient(string id, ClientDto model)
+        public async Task<IActionResult> UpdateClient(string id, ClientUpdateDto model)
         {
             if (ModelState.IsValid)
             {

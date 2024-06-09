@@ -1,12 +1,18 @@
 
 
-using DAL.Context;
+
+using PL.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddHttpClient();
 
+builder.Services.AddHttpClient<HttpServices>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7083/");
+});
 
 var app = builder.Build();
 

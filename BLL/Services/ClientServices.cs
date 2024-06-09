@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BLL.DTO.Client;
+using DTO.Client;
 using BLL.Services.Contracts;
 using DAL.Models;
 using DAL.Repositories.Contracts;

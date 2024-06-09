@@ -1,19 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BLL.DTO.ClientProduct
+namespace DTO.ClientProduct
 {
-    public class ClientProductUpdate
+    public class ClientProductCreateDto
     {
-     
         [Required]
         public DateTime StartDate { get; set; }
+        [Required]
         public DateTime? EndDate { get; set; }
         [MaxLength(255)]
         [Required]
         public string License { get; set; }
-        [Required]
         public string ClientId { get; set; }
-        [Required]
         public string ProductId { get; set; }
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using BLL.DTO.Client;
-using BLL.DTO.Product;
+using DTO.Client;
+using DTO.Product;
 using BLL.Services.Contracts;
 using DAL.Models;
 using DAL.Repositories.Contracts;

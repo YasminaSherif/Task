@@ -1,7 +1,7 @@
-﻿using BLL.DTO.ClientProduct;
+﻿using DTO.ClientProduct;
 using System.ComponentModel.DataAnnotations;
 
-namespace BLL.DTO.Client
+namespace DTO.Client
 {
     public class ClientWithDtailesDto
     {

@@ -1,4 +1,4 @@
-﻿using BLL.DTO.ClientProduct;
+﻿using DTO.ClientProduct;
 using BLL.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using System;
