@@ -8,7 +8,7 @@ namespace BLL.Services.Contracts
         Task<List<ProductDto>> GetAllProducts();
         Task<ProductDto?> GetProductById(string id);
         Task<ProductDto> CreateProduct(ProductCreateDto model);
-        Task<bool?> DeleteProduct(string id);
+        Task<bool> DeleteProduct(string id);
         Task<ProductDto?> UpdateProduct(string id, productUpdateDto model);
 
     }

@@ -36,7 +36,7 @@ namespace PL.Pages.Clients
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPosttAsync(string id)
         {
             if (!ModelState.IsValid)
             {
@@ -44,7 +44,7 @@ namespace PL.Pages.Clients
             }
 
             await _clientService.UpdateClient(id, Client);
-            return RedirectToPage("/Client/Index");
+            return RedirectToPage("clients");
         }
     
 }

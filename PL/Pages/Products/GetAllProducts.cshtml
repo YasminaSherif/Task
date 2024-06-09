@@ -26,8 +26,10 @@
                     <td>@product.Description</td>
                     <td>@product.IsActive</td>
                     <td>
-                        <a asp-page="UpdateProduct" asp-route-id="@product.Id" class="btn btn-secondary">Update</a>
-                        <a asp-page="DeleteProduct" asp-route-id="@product.Id" class="btn btn-danger">Delete</a>
+                       
+
+                        <a asp-page="deleteProduct" asp-route-id="@product.Id" class="btn btn-danger">Delete</a>
+                        <a asp-page="updateProduct" asp-route-id="@product.Id" class="btn btn-secondary">Update</a>
                     </td>
                 </tr>
             }

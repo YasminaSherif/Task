@@ -26,22 +26,20 @@ namespace BLL.Services
             return _mapper.Map<ProductDto>(createdProduct);
         }
 
-
-        public async Task<bool?> DeleteProduct(string id)
+        public async Task<bool> DeleteProduct(string id)
         {
             var product = await _repository.GetProductDetailsById(id);
             if (product == null)
             {
-                return false;
+                return false; // Product not found
             }
             if (product.ClientProducts.Any())
             {
-                throw new Exception(
-                    "there are clients connected to this product"
-                    );
+                throw new Exception("There are clients connected to this product");
             }
 
-            return await _repository.Delete(product);
+            var result = await _repository.Delete(product);
+            return result;
         }
 
         public async Task<List<ProductDto>> GetAllProducts()

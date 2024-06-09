@@ -21,7 +21,7 @@ namespace PL.Services
         protected async Task<T> Post<T, K>(string uri, K data)
         {
             var response = await _httpClient.PostAsJsonAsync(uri, data);
-            if (response.StatusCode != System.Net.HttpStatusCode.Created  || response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (response.StatusCode != System.Net.HttpStatusCode.Created  && response.StatusCode != System.Net.HttpStatusCode.OK)
             {
                 var error= await response.Content.ReadAsStringAsync();
                 throw new Exception(error);

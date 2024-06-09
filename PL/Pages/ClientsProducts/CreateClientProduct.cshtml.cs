@@ -28,7 +28,7 @@ namespace PL.Pages.ClientsProducts
             try
             {
                 await _clientProductService.CreateClientProduct(clientProductDto);
-                return RedirectToPage("ClientsProudcts");
+                return RedirectToPage("clientsProducts");
             }
             catch (Exception e)
             {

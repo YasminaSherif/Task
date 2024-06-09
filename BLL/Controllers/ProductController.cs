@@ -23,7 +23,7 @@ namespace BLL.Controllers
                 try
                 {
                     var createdProduct = await _productService.CreateProduct(product);
-                    return Created(nameof(GetProductById),createdProduct);
+                    return Created(nameof(GetProductById), createdProduct);
                 }
                 catch (Exception e)
                 {
@@ -45,7 +45,7 @@ namespace BLL.Controllers
             try
             {
                 var result = await _productService.DeleteProduct(id);
-                if (result == true)
+                if (result)
                 {
                     return Ok();
                 }
@@ -53,9 +53,13 @@ namespace BLL.Controllers
             }
             catch (Exception e)
             {
+
+
                 return BadRequest(e.Message);
+
             }
         }
+
 
         [HttpGet]
         public async Task<IActionResult> GetAllProducts()
@@ -81,7 +85,7 @@ namespace BLL.Controllers
             try
             {
                 var products = await _productService.GetAllProductsWithPaging(pageNumber, pageSize);
-                if (products == null|| !products.Any())
+                if (products == null || !products.Any())
                 {
                     return NotFound("No products found for the given page.");
                 }

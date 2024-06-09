@@ -17,7 +17,7 @@ namespace PL.Services
 
         public async Task DeleteProduct(string id)
         {
-            await Delete($"https://localhost:7083/Api/Prpduct/{id}");
+            await Delete($"https://localhost:7083/Api/Product/{id}");
         }
 
 
@@ -38,7 +38,7 @@ namespace PL.Services
 
         public async Task<ProductDto> UpdateProduct(string id, productUpdateDto product)
         {
-            return await Put<ProductDto, productUpdateDto>($"https://localhost:7083/api/Client/{id}", product);
+           return await Put<ProductDto, productUpdateDto>($"https://localhost:7083/api/Product/{id}", product);
         }
 
 

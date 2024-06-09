@@ -3,34 +3,29 @@
 @{
 }
 
+
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">ClientProduct</h5>
-                    <a href="CreateClientProduct" class="btn btn-primary">Create</a>
-                </div>
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/images/1.jpg" alt="Create ClientProduct">
+            <div class="card-body text-center">
+                    <h5 class="card-title">Create ClientProduct</h5>
+                    <p class="card-text">Add a new ClientProduct to the system.</p>
+                <a href="CreateClientProduct" class="btn btn-primary">Create</a>
             </div>
         </div>
-
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">ClientProducts</h5>
-                    <a href="GetAllClientProduct" class="btn btn-primary">Get All</a>
-                </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/images/2.jpg" alt="Get All Products">
+            <div class="card-body text-center">
+                    <h5 class="card-title">Get ClientProduct using id</h5>
+                    <p class="card-text">Get ClientProduct using id also you can edit</p>
+                <a href="GetClientProductById" class="btn btn-primary">Get All</a>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">ClientProduct</h5>
-                    <a href="UpdateCLientProduct" class="btn btn-primary">Update </a>
-                </div>
-            </div>
-        </div>
-
+    </div>
     </div>
 </div>
 </div>
@@ -41,6 +36,11 @@
     }
 
     .card {
-        margin: 10px;
+        margin: 20px;
+    }
+
+    .card-img-top {
+        height: 180px;
+        object-fit: cover;
     }
 </style>

@@ -15,7 +15,7 @@ namespace PL.Pages.Products
         }
 
         [BindProperty]
-        public ProductCreateDto product { get; set; }
+        public ProductCreateDto Product { get; set; }
 
 
         public async Task<IActionResult> OnPostAsync()
@@ -27,7 +27,7 @@ namespace PL.Pages.Products
 
             try
             {
-                await _productService.CreateProduct(product);
+                await _productService.CreateProduct(Product);
                 return RedirectToPage("products");
             }
             catch (Exception e)
@@ -40,3 +40,4 @@ namespace PL.Pages.Products
 
     }
 }
+    

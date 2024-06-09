@@ -5,32 +5,31 @@ using PL.Services;
 
 namespace PL.Pages.Products
 {
-    public class UpdateProductModel : PageModel
+    public class updateProductModel : PageModel
     {
         private readonly ProductService _productService;
 
-        public UpdateProductModel(ProductService productService)
+        public updateProductModel(ProductService productService)
         {
             _productService = productService;
         }
-
         [BindProperty]
-        public productUpdateDto product { get; set; }
+        public productUpdateDto Product { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            var client = await _productService.GetProductById(id);
+            var product = await _productService.GetProductById(id);
 
-            if (client == null)
+            if (product == null)
             {
                 return NotFound();
             }
 
-            product = new productUpdateDto
+            Product = new productUpdateDto
             {
                 Name = product.Name,
                 Description = product.Description,
-                IsActive = product.IsActive,
+                IsActive=product.IsActive,
             };
 
             return Page();
@@ -43,8 +42,8 @@ namespace PL.Pages.Products
                 return Page();
             }
 
-            await _productService.UpdateProduct(id, product);
-            return RedirectToPage("GetAllProducts");
+            await _productService.UpdateProduct(id, Product);
+            return RedirectToPage("products");
         }
 
     }

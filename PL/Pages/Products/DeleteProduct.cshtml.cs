@@ -2,14 +2,16 @@ using DTO.Product;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using PL.Services;
+using System;
+using System.Threading.Tasks;
 
 namespace PL.Pages.Products
 {
-    public class DeleteProductModel : PageModel
+    public class deleteProductModel : PageModel
     {
         private readonly ProductService _productService;
 
-        public DeleteProductModel( ProductService productService)
+        public deleteProductModel(ProductService productService)
         {
             _productService = productService;
         }
@@ -27,33 +29,37 @@ namespace PL.Pages.Products
                 {
                     return NotFound();
                 }
-
-                return Page();
             }
             catch (Exception e)
             {
                 return BadRequest(e.Message);
-
             }
 
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPostAsync()
         {
             try
+            {
+                if (product == null || product.Id == null)
+                {
+                    return BadRequest("Product is not set.");
+                }
 
-    {
-                await _productService.DeleteProduct(id);
+                await _productService.DeleteProduct(product.Id);
             }
-	catch (Exception e)
-
-    {
-
-                ModelState.AddModelError(string.Empty, e.Message);
-
+            catch (InvalidOperationException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
                 return Page();
             }
+            catch (Exception e)
+            {
+                ModelState.AddModelError(string.Empty, "An unexpected error occurred. Please try again later.");
+                return Page();
+            }
+
             return RedirectToPage("GetAllProducts");
         }
     }
