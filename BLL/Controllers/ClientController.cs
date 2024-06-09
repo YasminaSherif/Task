@@ -1,10 +1,7 @@
-﻿using DTO.Client;
+﻿  using DTO.Client;
 using BLL.Services.Contracts;
-using DAL.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
+
 
 namespace BLL.Controllers
 {
@@ -106,6 +103,7 @@ namespace BLL.Controllers
             try
             {
                 var result = await _clientService.GetClientDetailsById(id);
+                
                 if (result != null)
                 {
                     return Ok(result);

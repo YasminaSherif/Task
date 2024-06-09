@@ -12,33 +12,33 @@ namespace PL.Services
 
         public Task<List<ClientDto>> GetAllClients()
         {
-            return Get<List<ClientDto>>("api/Client");
+            return Get<List<ClientDto>>("https://localhost:7083/api/Client");
         }
 
         public Task<ClientDto> CreateClient(ClientCreateDto client)
         {
-            return Post<ClientDto,ClientCreateDto> ("api/Client", client);
+            return Post<ClientDto, ClientCreateDto>("https://localhost:7083/api/Client", client);
         }
 
 
         public Task<ClientDto> UpdateClient(string id, ClientUpdateDto client)
         {
-            return Put<ClientDto, ClientUpdateDto>($"api/Client/{id}", client);
+            return Put<ClientDto, ClientUpdateDto>($"https://localhost:7083/api/Client/{id}", client);
         }
 
         public Task DeleteClient(string id)
         {
-            return Delete($"api/Client/{id}");
+            return Delete($"https://localhost:7083/api/Client/{id}");
         }
 
-        public Task<ClientDto> GetClientDetailsById(string id)
+        public Task<ClientWithDtailesDto> GetClientDetailsById(string id)
         {
-            return Get<ClientDto>($"api/Client/{id}");
+            return Get<ClientWithDtailesDto>($"https://localhost:7083/api/Client/{id}");
         }
 
         public Task<IEnumerable<ClientDto>> GetAllClientsWithPaging(int pageNumber, int pageSize)
         {
-            return Get<IEnumerable<ClientDto>>($"api/Client/paging?pageNumber={pageNumber}&pageSize={pageSize}");
+            return Get<IEnumerable<ClientDto>>($"https://localhost:7083/api/Client/paging?pageNumber={pageNumber}&pageSize={pageSize}");
         }
     }
 

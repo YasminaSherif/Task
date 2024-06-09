@@ -1,4 +1,45 @@
-﻿@page
+﻿@page "{id}"
 @model PL.Pages.Clients.GetClientDetailesByIdcshtmlModel
 @{
+    ViewData["Title"] = "Client Details";
 }
+
+<h1>Client Details</h1>
+
+<div>
+    <h4>@Model.Client.Name</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Code</dt>
+        <dd class="col-sm-10">@Model.Client.Code</dd>
+        <dt class="col-sm-2">Class</dt>
+        <dd class="col-sm-10">@Model.Client.Class</dd>
+        <dt class="col-sm-2">State</dt>
+        <dd class="col-sm-10">@Model.Client.State</dd>
+    </dl>
+</div>
+
+<h2>Products</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>License</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Client.ClientProducts)
+        {
+            <tr>
+                <td>@product.StartDate.ToString("yyyy-MM-dd")</td>
+                <td>@product.EndDate?.ToString("yyyy-MM-dd")</td>
+                <td>@product.License</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="/Clients/Index" class="btn btn-primary">Back to List</a>
+<a asp-page="/Clients/UpdateClient" asp-route-id="@Model.Client.Id" class="btn btn-secondary">Edit</a>
+<a asp-page="/Clients/DeleteClient" asp-route-id="@Model.Client.Id" class="btn btn-danger">Delete</a>

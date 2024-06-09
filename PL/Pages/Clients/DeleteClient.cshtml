@@ -2,3 +2,20 @@
 @model PL.Pages.Clients.DeleteClientModel
 @{
 }
+
+<h1>Delete Client</h1>
+
+<h3>Are you sure you want to delete this client?</h3>
+
+<div>
+    <h4>@Model.Client.Name</h4>
+    <p>Code: @Model.Client.Code</p>
+    <p>Class: @Model.Client.Class</p>
+    <p>State: @Model.Client.State</p>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Client.Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="/Client/Index" class="btn btn-secondary">Cancel</a>
+</form>

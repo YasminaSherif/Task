@@ -2,6 +2,7 @@
 
 
 using PL.Services;
+using System.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,10 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
 
+
 builder.Services.AddHttpClient<HttpServices>(client =>
 {
     client.BaseAddress = new Uri("https://localhost:7083/");
+    client.DefaultRequestHeaders.Accept.Clear();
+    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 });
+builder.Services.AddScoped<ClientService>();
+builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<ClientProductService>();
 
 var app = builder.Build();
 

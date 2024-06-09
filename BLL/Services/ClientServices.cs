@@ -23,7 +23,7 @@ namespace BLL.Services
         {
             if (await _repository.CodeExists(model.Code))
             {
-                throw new ArgumentException("A client with this code already exists.");
+                throw new Exception("A client with this code already exists.");
             }
             var client = new Client();
             if (Enum.TryParse<ClientState>(model.State, false, out var state))
@@ -101,7 +101,7 @@ namespace BLL.Services
             return client is not null ? _mapper.Map<ClientWithDtailesDto>(client) : null;
         }
 
-        public async Task<ClientDto?> UpdateClient(string id, ClientDto model)
+        public async Task<ClientDto?> UpdateClient(string id, ClientUpdateDto model)
         {
             var client = await _repository.GetById(id);
             if (client is null)
@@ -118,7 +118,7 @@ namespace BLL.Services
             }
             client.Name = model.Name;
 
-            if (Enum.TryParse<ClientClass>(model.State, false, out var clientClass))
+            if (Enum.TryParse<ClientClass>(model.Class, false, out var clientClass))
             {
                 client.Class = clientClass;
             }
@@ -132,5 +132,7 @@ namespace BLL.Services
 
 
         }
+
+       
     }
 }

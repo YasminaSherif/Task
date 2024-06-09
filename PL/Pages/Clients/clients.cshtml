@@ -1,7 +1,6 @@
 ﻿@page
-@model IndexModel
+@model PL.Pages.Clients.clientsModel
 @{
-    ViewData["Title"] = "Home page";
 }
 
 
@@ -10,34 +9,38 @@
         <div class="col-md-4">
             <div class="card text-center">
                 <div class="card-body">
-                    <h5 class="card-title">Product</h5>
-                    <a href="/Products/Product" class="btn btn-danger">Product</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
                     <h5 class="card-title">Client</h5>
-                    <a href="/Clients/clients" class="btn btn-warning">Client</a>
+                    <a href="CreateClient" class="btn btn-primary">Create</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Clients</h5>
+                    <a href="GetAllClients" class="btn btn-primary">Get All</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card text-center">
                 <div class="card-body">
-                    <h5 class="card-title">Client Product</h5>
-                    <a href="/ClientsProducts/clientsProducts" class="btn btn-success">Client Product</a>
+                    <h5 class="card-title">Clients</h5>
+                    <a href="GetAllClientsWithPaging" class="btn btn-primary">Get All with paging </a>
                 </div>
             </div>
         </div>
+
     </div>
+</div>
 </div>
 
 <style>
     .container {
         margin-top: 50px;
     }
+
     .card {
         margin: 10px;
     }

@@ -2,3 +2,34 @@
 @model PL.Pages.Clients.GetAllClientsModel
 @{
 }
+
+<h1>Clients</h1>
+
+<a asp-page="CreateClient" class="btn btn-primary">Create New Client</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Class</th>
+            <th>State</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model.Clients)
+        {
+            <tr>
+                <td>@client.Name</td>
+                <td>@client.Code</td>
+                <td>@client.Class</td>
+                <td>@client.State</td>
+                <td>
+                    <a asp-page="UpdateClient" asp-route-id="@client.Id" class="btn btn-secondary">Update</a>
+                    <a asp-page="DeleteClient" asp-route-id="@client.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
