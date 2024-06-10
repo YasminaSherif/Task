@@ -18,7 +18,7 @@ namespace DAL.Repositories
         protected Repository(ApplicationContext context)
         {
             _context = context;
-            dbSet=context.Set<T>();
+            dbSet = context.Set<T>();
         }
 
         public async Task<T> Add(T model)
@@ -30,8 +30,8 @@ namespace DAL.Repositories
 
         public async Task<bool> Delete(T model)
         {
-            
-             dbSet.Remove(model);
+
+            dbSet.Remove(model);
             await _context.SaveChangesAsync();
             return true;
         }
@@ -40,7 +40,7 @@ namespace DAL.Repositories
         {
             return await dbSet.ToListAsync();
         }
-       
+
         public async Task<T?> GetById(string id)
         {
             return await dbSet.FindAsync(id);
@@ -53,6 +53,6 @@ namespace DAL.Repositories
             return model;
         }
 
-        
+
     }
 }

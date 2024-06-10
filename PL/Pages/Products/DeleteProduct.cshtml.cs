@@ -49,14 +49,9 @@ namespace PL.Pages.Products
 
                 await _productService.DeleteProduct(product.Id);
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
-                return Page();
-            }
-            catch (Exception e)
-            {
-                ModelState.AddModelError(string.Empty, "An unexpected error occurred. Please try again later.");
                 return Page();
             }
 

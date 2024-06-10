@@ -30,9 +30,9 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IProductRepository, ProductRepositiory>();
 builder.Services.AddScoped<IClientRepository, ClientRepositiory>();
-builder.Services.AddScoped<IRepository<ClientProduct>,ClientProductRepository>();
+builder.Services.AddScoped<IClientProductRepository, ClientProductRepository>();
 
-builder.Services.AddAutoMapper(typeof(ClientProfile), typeof(ProductProfile),typeof(ClientProductProfile));
+builder.Services.AddAutoMapper(typeof(ClientProfile), typeof(ProductProfile), typeof(ClientProductProfile));
 
 builder.Services.AddScoped<IClientService, ClientServices>();
 builder.Services.AddScoped<IProductService, ProductServices>();

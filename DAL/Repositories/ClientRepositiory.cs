@@ -30,12 +30,12 @@ namespace DAL.Repositories
         {
             var client = await _context.Clients
                 .Include(c => c.ClientProducts)
-                .ThenInclude(cp=> cp.Product)
+                .ThenInclude(cp => cp.Product)
                 .SingleOrDefaultAsync(c => c.Id == id);
 
-            if(client is not null)
+            if (client is not null)
             {
-               client.ClientProducts=client.ClientProducts.OrderBy(p=>p.Product.Name).ToList();
+                client.ClientProducts = client.ClientProducts.OrderBy(p => p.Product.Name).ToList();
             }
             return client;
         }

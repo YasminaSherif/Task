@@ -5,37 +5,37 @@
 
 <form method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
-    
+
     <div class="form-group">
         <label asp-for="clientProductDto.StartDate"></label>
         <input asp-for="clientProductDto.StartDate" class="form-control" />
         <span asp-validation-for="clientProductDto.StartDate" class="text-danger"></span>
     </div>
-    
+
     <div class="form-group">
         <label asp-for="clientProductDto.EndDate"></label>
         <input asp-for="clientProductDto.EndDate" class="form-control" />
         <span asp-validation-for="clientProductDto.EndDate" class="text-danger"></span>
     </div>
-    
+
     <div class="form-group">
         <label asp-for="clientProductDto.License"></label>
         <input asp-for="clientProductDto.License" class="form-control" />
         <span asp-validation-for="clientProductDto.License" class="text-danger"></span>
     </div>
-    
+
     <div class="form-group">
         <label asp-for="clientProductDto.ClientId"></label>
         <input asp-for="clientProductDto.ClientId" class="form-control" />
         <span asp-validation-for="clientProductDto.ClientId" class="text-danger"></span>
     </div>
-    
+
     <div class="form-group">
         <label asp-for="clientProductDto.ProductId"></label>
         <input asp-for="clientProductDto.ProductId" class="form-control" />
         <span asp-validation-for="clientProductDto.ProductId" class="text-danger"></span>
     </div>
-    
+
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
 

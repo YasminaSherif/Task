@@ -4,7 +4,7 @@ namespace DTO.Client
 {
     public class ClientUpdateDto
     {
-        
+
         [MaxLength(50)]
         [Required]
         public string Name { get; set; }

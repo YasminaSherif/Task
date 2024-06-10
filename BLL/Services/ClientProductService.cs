@@ -3,17 +3,19 @@ using DTO.ClientProduct;
 using BLL.Services.Contracts;
 using DAL.Models;
 using DAL.Repositories.Contracts;
+using DAL.Repositories;
+using DTO.Client;
 
 namespace BLL.Services
 {
     public class ClientProductService : IClinetProductService
     {
-        private readonly IRepository<ClientProduct> _clientProductRepository;
+        private readonly IClientProductRepository _clientProductRepository;
         private readonly IProductRepository _productRepository;
         private readonly IClientRepository _clientRepository;
         private readonly IMapper _mapper;
 
-        public ClientProductService(IRepository<ClientProduct> ClientProductRepository, IProductRepository productRepository, IClientRepository clientRepository, IMapper mapper)
+        public ClientProductService(IClientProductRepository ClientProductRepository, IProductRepository productRepository, IClientRepository clientRepository, IMapper mapper)
         {
             _clientProductRepository = ClientProductRepository;
             _productRepository = productRepository;
@@ -68,12 +70,34 @@ namespace BLL.Services
 
         }
 
-        public async Task<ClientProductDto?> GetClientProductById(String id)
+
+        public async Task<List<ClientProductDto>?> GetAllClientProducts()
         {
-            var clientProduct = await _clientProductRepository.GetById(id);
-            return clientProduct is not null ? _mapper.Map<ClientProductDto>(clientProduct) : null;
+            var listOfClientProducts = await _clientProductRepository.GetAll();
+            if (listOfClientProducts == null || !listOfClientProducts.Any())
+            {
+                return new List<ClientProductDto>();
+            }
+            return listOfClientProducts.Select(p => _mapper.Map<ClientProductDto>(p)).ToList();
+        }
+
+        public async Task<ClientProductDetailesDto?> GetClientProductDetailsById(string id)
+        {
+            var clientProduct = await _clientProductRepository.GetClientProductDetailsById(id);
+            return clientProduct is not null ? new ClientProductDetailesDto
+            {
+                ClientId = clientProduct.Id,
+                ClientName = clientProduct.Client.Name,
+                EndDate = clientProduct.EndDate,
+                Id = id,
+                License = clientProduct.License,
+                ProductId = clientProduct.ProductId,
+                ProductName = clientProduct.Product.Name,
+                StartDate = clientProduct.StartDate,
+            } : null;
         }
     }
-
-
 }
+
+
+

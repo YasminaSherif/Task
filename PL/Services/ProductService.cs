@@ -38,7 +38,7 @@ namespace PL.Services
 
         public async Task<ProductDto> UpdateProduct(string id, productUpdateDto product)
         {
-           return await Put<ProductDto, productUpdateDto>($"https://localhost:7083/api/Product/{id}", product);
+            return await Put<ProductDto, productUpdateDto>($"https://localhost:7083/api/Product/{id}", product);
         }
 
 

@@ -23,7 +23,6 @@
                 <td>@client.Class</td>
                 <td>@client.State</td>
                 <td>
-                    <a asp-page="ClientDetails" asp-route-id="@client.Id" class="btn btn-info">Details</a>
                     <a asp-page="UpdateClient" asp-route-id="@client.Id" asp-route-pageNumber="@Model.CurrentPage" class="btn btn-secondary">Edit</a>
                     <a asp-page="DeleteClient" asp-route-id="@client.Id" asp-route-pageNumber="@Model.CurrentPage" class="btn btn-danger">Delete</a>
                 </td>

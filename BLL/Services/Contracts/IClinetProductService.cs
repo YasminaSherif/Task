@@ -1,4 +1,5 @@
-﻿using DTO.Client;
+﻿using DAL.Models;
+using DTO.Client;
 using DTO.ClientProduct;
 using DTO.Product;
 
@@ -9,7 +10,8 @@ namespace BLL.Services.Contracts
         Task<ClientProductDto> CreateClientProduct(ClientProductCreateDto model);
         Task<bool> DeleteClientProduct(string id);
         Task<ClientProductDto?> UpdateClientProduct(string id, ClientProductUpdateDto model);
-        Task<ClientProductDto?> GetClientProductById(String id);
+        Task<List<ClientProductDto>?> GetAllClientProducts();
+        Task<ClientProductDetailesDto?> GetClientProductDetailsById(string id);
     }
 
 }

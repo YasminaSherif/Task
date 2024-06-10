@@ -1,0 +1,44 @@
+﻿@page
+@model PL.Pages.ClientsProducts.GetClientProductsModel
+@{
+}
+<h1>Clients</h1>
+
+<a asp-page="CreateClient" class="btn btn-primary">Create New Client</a>
+
+@if (Model.ClientProducts is not null && Model.ClientProducts.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>License</th>
+                <th>Product Id</th>
+                <th>Client Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var clientProduct in Model.ClientProducts)
+            {
+                <tr>
+                    <td>@clientProduct.StartDate</td>
+                    <td>@clientProduct.EndDate</td>
+                    <td>@clientProduct.License</td>
+                    <td>@clientProduct.ProductId</td>
+                    <td>@clientProduct.ClientId</td>
+                    <td>
+                        <a asp-page="UpdateClientProduct" asp-route-id="@clientProduct.Id" class="btn btn-danger">Update</a>
+                        <a asp-page="GetClientProductById" asp-route-id="@clientProduct.Id" class="btn btn-danger">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No clientProducts available.</p>
+}
+
+

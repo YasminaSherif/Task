@@ -9,7 +9,7 @@ namespace PL.Pages.ClientsProducts
     {
         private readonly ClientProductService _clientProductService;
 
-        public UpdateCLientProductModel( ClientProductService clientProductService)
+        public UpdateCLientProductModel(ClientProductService clientProductService)
         {
             _clientProductService = clientProductService;
         }
@@ -28,12 +28,12 @@ namespace PL.Pages.ClientsProducts
 
             ClientProduct = new ClientProductUpdateDto
             {
-               
-               ClientId =clientProduct.ClientId,
-               ProductId= clientProduct.ProductId,
-               StartDate=ClientProduct.StartDate,
-               EndDate=ClientProduct.EndDate,
-               License=ClientProduct.License,
+
+                ClientId = clientProduct.ClientId,
+                ProductId = clientProduct.ProductId,
+                StartDate = clientProduct.StartDate,
+                EndDate = clientProduct.EndDate,
+                License = clientProduct.License,
             };
 
             return Page();
@@ -53,5 +53,5 @@ namespace PL.Pages.ClientsProducts
     }
 }
 
-    
+
 

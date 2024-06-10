@@ -21,9 +21,9 @@ namespace DAL.Repositories
 
         public async Task<Product?> GetProductDetailsById(string id)
         {
-          var product= await _context.Products
-                .Include(c => c.ClientProducts)
-                .SingleOrDefaultAsync(c => c.Id == id);
+            var product = await _context.Products
+                  .Include(c => c.ClientProducts)
+                  .SingleOrDefaultAsync(c => c.Id == id);
             return product;
         }
     }

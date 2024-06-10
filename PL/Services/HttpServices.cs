@@ -13,20 +13,29 @@ namespace PL.Services
 
         protected async Task<T> Get<T>(string uri)
         {
+
             var response = await _httpClient.GetAsync(uri);
-            response.EnsureSuccessStatusCode();
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+
+                var error = await response.Content.ReadAsStringAsync();
+                throw new Exception(error);
+
+            }
+
             return await response.Content.ReadAsAsync<T>();
+
         }
 
         protected async Task<T> Post<T, K>(string uri, K data)
         {
             var response = await _httpClient.PostAsJsonAsync(uri, data);
-            if (response.StatusCode != System.Net.HttpStatusCode.Created  && response.StatusCode != System.Net.HttpStatusCode.OK)
+            if (response.StatusCode != System.Net.HttpStatusCode.Created && response.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                var error= await response.Content.ReadAsStringAsync();
+                var error = await response.Content.ReadAsStringAsync();
                 throw new Exception(error);
             }
-            response.EnsureSuccessStatusCode();
+
             return await response.Content.ReadAsAsync<T>();
         }
 
@@ -38,7 +47,7 @@ namespace PL.Services
                 var error = await response.Content.ReadAsStringAsync();
                 throw new Exception(error);
             }
-            response.EnsureSuccessStatusCode();
+
             return await response.Content.ReadAsAsync<T>();
         }
 
@@ -50,7 +59,7 @@ namespace PL.Services
                 var error = await response.Content.ReadAsStringAsync();
                 throw new Exception(error);
             }
-            response.EnsureSuccessStatusCode();
+
         }
 
 

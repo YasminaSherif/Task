@@ -14,16 +14,16 @@ namespace PL.Pages.ClientsProducts
             _clientProductService = clientProductService;
         }
 
-       public  ClientProductDto ClientProduct { get;set; }
+        public ClientProductDetailesDto ClientProduct { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
 
 
-            
-                ClientProduct = await _clientProductService.GetClientProductById(id);
-            
-           
+
+            ClientProduct = await _clientProductService.GetClientProductById(id);
+
+
 
             if (ClientProduct == null)
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories.Contracts
 {
-    public interface IRepository<T> where T: class 
+    public interface IRepository<T> where T : class
     {
         Task<List<T>> GetAll();
         Task<T?> GetById(string id);

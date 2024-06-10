@@ -20,11 +20,11 @@ namespace PL.Pages.Clients
 
         public async Task OnGetAsync(int pageNumber = 1)
         {
-            const int pageSize = 3;  
+            const int pageSize = 3;
             var clientsResult = await _clientService.GetAllClientsWithPaging(pageNumber, pageSize);
 
             Clients = clientsResult.ToList();
-            CurrentPage =pageNumber;
+            CurrentPage = pageNumber;
             TotalPages = pageSize;
         }
     }

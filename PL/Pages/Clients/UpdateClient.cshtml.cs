@@ -7,7 +7,7 @@ namespace PL.Pages.Clients
 {
     public class UpdateClientModel : PageModel
     {
-       private readonly ClientService _clientService;
+        private readonly ClientService _clientService;
 
         public UpdateClientModel(ClientService clientService)
         {
@@ -46,6 +46,6 @@ namespace PL.Pages.Clients
             await _clientService.UpdateClient(id, Client);
             return RedirectToPage("clients");
         }
-    
-}
+
+    }
 }

@@ -29,7 +29,7 @@ namespace PL.Pages.Products
             {
                 Name = product.Name,
                 Description = product.Description,
-                IsActive=product.IsActive,
+                IsActive = product.IsActive,
             };
 
             return Page();

@@ -1,4 +1,4 @@
-﻿  using DTO.Client;
+﻿using DTO.Client;
 using BLL.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -66,24 +66,24 @@ namespace BLL.Controllers
         {
             try
             {
-               var result = await _clientService.DeleteClient(id);
+                var result = await _clientService.DeleteClient(id);
                 if (result)
                     return Ok();
                 else
                     return BadRequest();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-               return BadRequest(e.Message);
+                return BadRequest(e.Message);
             }
         }
 
         [HttpGet("paging")]
-        public async Task<IActionResult> GetAllClientsWithPaging(int pageNumber,int pageSize)
+        public async Task<IActionResult> GetAllClientsWithPaging(int pageNumber, int pageSize)
         {
             try
             {
-                var clients = await _clientService.GetAllClientsWithPaging(pageNumber,pageSize);
+                var clients = await _clientService.GetAllClientsWithPaging(pageNumber, pageSize);
                 if (clients == null || !clients.Any())
                 {
                     return NotFound("No clients found for the given page.");
@@ -103,7 +103,7 @@ namespace BLL.Controllers
             try
             {
                 var result = await _clientService.GetClientDetailsById(id);
-                
+
                 if (result != null)
                 {
                     return Ok(result);
@@ -119,7 +119,7 @@ namespace BLL.Controllers
             }
         }
 
-      
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateClient(string id, ClientUpdateDto model)
         {

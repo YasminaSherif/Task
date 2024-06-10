@@ -13,8 +13,8 @@ namespace PL.Pages.Clients
         {
             _clientService = clientService;
         }
-        
-        public List<ClientDto>? Clients { get; set; }= new List<ClientDto>();
+
+        public List<ClientDto>? Clients { get; set; } = new List<ClientDto>();
 
         public async Task OnGetAsync()
         {

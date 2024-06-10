@@ -4,7 +4,7 @@ using DAL.Models;
 
 namespace BLL.AutoMapperProfiles
 {
-    public class ClientProfile:Profile
+    public class ClientProfile : Profile
     {
         public ClientProfile()
         {

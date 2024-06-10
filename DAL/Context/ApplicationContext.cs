@@ -3,18 +3,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Context
 {
-    public class ApplicationContext:DbContext
+    public class ApplicationContext : DbContext
     {
-        public DbSet<Client> Clients {  get; set; }
+        public DbSet<Client> Clients { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ClientProduct> ClientProducts { get; set; }
 
-        public ApplicationContext() :base()
+        public ApplicationContext() : base()
         {
-            
+
         }
 
-        public ApplicationContext(DbContextOptions options):base(options)
+        public ApplicationContext(DbContextOptions options) : base(options)
         {
 
         }
@@ -57,7 +57,7 @@ namespace DAL.Context
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<ClientProduct>()
-              .HasOne(c=>c.Client)
+              .HasOne(c => c.Client)
               .WithMany(cp => cp.ClientProducts)
               .OnDelete(DeleteBehavior.Restrict);
         }

@@ -11,7 +11,7 @@ namespace PL.Pages.ClientsProducts
 
         public CreateClientProductModel(ClientProductService clientProductService)
         {
-           _clientProductService = clientProductService;
+            _clientProductService = clientProductService;
         }
 
         [BindProperty]
@@ -40,4 +40,4 @@ namespace PL.Pages.ClientsProducts
 
     }
 }
-    
+

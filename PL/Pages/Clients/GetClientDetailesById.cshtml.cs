@@ -8,30 +8,30 @@ namespace PL.Pages.Clients
 {
     public class GetClientDetailesByIdcshtmlModel : PageModel
     {
-       
-            private readonly ClientService _clientService;
 
-            public GetClientDetailesByIdcshtmlModel(ClientService clientService)
+        private readonly ClientService _clientService;
+
+        public GetClientDetailesByIdcshtmlModel(ClientService clientService)
+        {
+            _clientService = clientService;
+        }
+
+        public ClientWithDtailesDto Client { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(string id)
+        {
+
+
+            Client = await _clientService.GetClientDetailsById(id);
+
+            if (Client == null)
             {
-                _clientService = clientService;
+                return NotFound();
             }
+            return Page();
 
-            public ClientWithDtailesDto Client { get; set; }
-
-            public async Task<IActionResult> OnGetAsync(string id)
-            {
-                
-
-             Client = await _clientService.GetClientDetailsById(id);
-
-                if (Client == null)
-                {
-                    return NotFound();
-                }
-           return Page();
-                
-               ;
-            }
+            ;
         }
     }
+}
 

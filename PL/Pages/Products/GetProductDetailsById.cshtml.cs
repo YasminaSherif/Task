@@ -18,7 +18,7 @@ namespace PL.Pages.Products
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            
+
             product = await _productService.GetProductById(id);
 
             if (product == null)
@@ -32,4 +32,3 @@ namespace PL.Pages.Products
     }
 }
 
-   

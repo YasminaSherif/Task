@@ -18,6 +18,28 @@ namespace BLL.Controllers
             _clinetProductService = clinetProductService;
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClientProducts()
+        {
+            try
+            {
+                var clientsProducts = await _clinetProductService.GetAllClientProducts();
+                if (clientsProducts == null || !clientsProducts.Any())
+                {
+                    return NotFound("No clientProduct found found.");
+                }
+                return Ok(clientsProducts);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
+
+
+
         [HttpPost]
         public async Task<IActionResult> CreateClientProduct(ClientProductCreateDto clientProduct)
         {
@@ -93,7 +115,7 @@ namespace BLL.Controllers
         {
             try
             {
-                var clientProduct = await _clinetProductService.GetClientProductById(id);
+                var clientProduct = await _clinetProductService.GetClientProductDetailsById(id);
                 if (clientProduct != null)
                 {
                     return Ok(clientProduct);

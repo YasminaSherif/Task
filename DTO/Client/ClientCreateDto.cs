@@ -17,6 +17,6 @@ namespace DTO.Client
         [Required]
         public string State { get; set; }
 
-       
+
     }
 }
